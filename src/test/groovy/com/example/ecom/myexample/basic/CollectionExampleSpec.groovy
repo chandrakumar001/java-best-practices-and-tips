@@ -135,12 +135,41 @@ class CollectionExampleSpec extends Specification {
         actualResult == expectedResult
 
         where:
-        testStep                                            | linearExample | findValue || expectedResult
-        "The value is not found"                            | getStrings()  | "11"      || ["1", "2", "3", "4", "5"]
-        "The value is found(UnsupportedOperationException)" | getStrings()  | "2"       || ["1", "3", "4", "5", "6"]
+        testStep                                            | linearExample  | findValue || expectedResult
+        "The value is not found"                            | getArrayList() | "11"      || ["1", "2", "3", "4", "5"]
+        "The value is found(UnsupportedOperationException)" | getArrayList() | "2"       || ["1", "3", "4", "5", "6"]
     }
 
-    static List<String> getStrings() {
+    def "fail-safe method basicForLoop with CopyOnWriteArrayList #testStep"() {
+        given: ""
+        def actualResult = null
+
+        when: "call method"
+        actualResult = CollectionExample1.basicForLoop(
+                linearExample as List<String>,
+                findValue as String
+        )
+        then: "output matching"
+        actualResult == expectedResult
+
+        where:
+        testStep                                            | linearExample             | findValue || expectedResult
+        "The value is not found"                            | getCopyOnWriteArrayList() | "11"      || ["1", "2", "3", "4", "5"]
+        "The value is found(UnsupportedOperationException)" | getCopyOnWriteArrayList() | "2"       || ["1", "3", "4", "5", "6"]
+    }
+
+
+    static List<String> getArrayList() {
+        List<String> myList = new ArrayList<>();
+        myList.add("1");
+        myList.add("2");
+        myList.add("3");
+        myList.add("4");
+        myList.add("5");
+        return myList;
+    }
+
+    static List<String> getCopyOnWriteArrayList() {
         List<String> myList = new ArrayList<>();
         myList.add("1");
         myList.add("2");

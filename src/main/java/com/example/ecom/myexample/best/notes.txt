@@ -111,4 +111,6 @@ ConcurrentModificationException:
 Do not use class
   1.List.of()
   2.[]
+  3. Arrays.List(): same case will be not work
+
 
