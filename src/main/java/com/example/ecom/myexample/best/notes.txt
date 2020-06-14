@@ -1,0 +1,92 @@
+Java 9 Immutable Collections Example
+Immutable List in Java
+ImmutableList, as suggested by the name, is a type of List which is immutable.
+It means that the content of the List are fixed or constant after declaration, that is, they are read-only.
+
+If any attempt made to add, delete and update elements in the List,
+                            UnsupportedOperationException is thrown.
+
+An ImmutableList does not allow null element either.
+
+If any attempt made to create an ImmutableList with
+                                                null element,
+                                                NullPointerException is thrown.
+If any attempt is made to add null element in List,
+                                          UnsupportedOperationException is thrown.
+
+
+Advantages of ImmutableList
+
+        They are thread safe.
+        They are memory efficient.
+        Since they are immutable, hence they can be passed over to third party libraries without any problem.
+
+Example: 0
+
+        // empty immutable map
+        List<String> list = List.of();
+        // Lets try adding element in  List
+        list.add("chandra");
+
+Output:
+Exception in thread "main" java.lang.UnsupportedOperationException
+
+Example: 1
+
+        List<String> immutableList = List.of(
+        "one", "two", "three", null
+        );
+
+Output:
+        If we try to create list with 'null' element,
+         a java.lang.NullPointerException will be thrown:
+
+Exception in thread "main" java.lang.NullPointerException
+	at java.base/java.util.Objects.requireNonNull(Objects.java:221)
+	at java.base/java.util.ImmutableCollections$ListN.<init>(ImmutableCollections.java:423)
+	at java.base/java.util.List.of(List.java:861)
+	at com.example.ecom.myexample.best.CollectionExample.main(CollectionExample.java:16)
+
+Example: 2
+
+        List<String> immutableList = List.of("one", "two", "three");
+        immutableList.add("four");
+
+Output:
+        the list created with static factory method is immutable,
+     so if we try to add an element to list,
+     it also throws an java.lang.UnsupportedOperationException
+
+Exception in thread "main" java.lang.UnsupportedOperationException
+	at java.base/java.util.ImmutableCollections.uoe(ImmutableCollections.java:71)
+	at java.base/java.util.ImmutableCollections$AbstractImmutableCollection.add(ImmutableCollections.java:75)
+	at com.example.ecom.myexample.best.CollectionExample.main(CollectionExample.java:16)
+
+
+Solution for problems above:
+
+Example: 3
+        List<String> immutableList = new java.util.ArrayList<>(List.of("one", "two", "three"));
+        immutableList.add("four");
+        System.out.println(immutableList);
+
+output:
+        [one, two, three, four]
+
+Example: 4
+            we can still change original List
+
+            List<String> list = new ArrayList<>();
+            list.add("test");
+            // Create ImmutableList from List using copyOf()
+            List<String> ts = Collections.unmodifiableList(list);
+
+            // We change List and the changes reflect in iList.
+            list.add("For");
+            list.add("chandra");
+            list.add(null);
+output:
+            [test, For, chandra, null]
+
+Example: 5
+
