@@ -1,5 +1,6 @@
 package com.example.ecom.myexample.best
 
+import com.example.ecom.myexample.basic.ArithmeticExample
 import spock.lang.Specification
 
 class ArithmeticExampleSpec extends Specification {

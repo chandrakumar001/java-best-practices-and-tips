@@ -45,7 +45,7 @@ Exception in thread "main" java.lang.NullPointerException
 	at java.base/java.util.Objects.requireNonNull(Objects.java:221)
 	at java.base/java.util.ImmutableCollections$ListN.<init>(ImmutableCollections.java:423)
 	at java.base/java.util.List.of(List.java:861)
-	at com.example.ecom.myexample.best.CollectionExample.main(CollectionExample.java:16)
+	at com.example.ecom.myexample.basic.CollectionExample.main(CollectionExample.java:16)
 
 Example: 2
 
@@ -60,7 +60,7 @@ Output:
 Exception in thread "main" java.lang.UnsupportedOperationException
 	at java.base/java.util.ImmutableCollections.uoe(ImmutableCollections.java:71)
 	at java.base/java.util.ImmutableCollections$AbstractImmutableCollection.add(ImmutableCollections.java:75)
-	at com.example.ecom.myexample.best.CollectionExample.main(CollectionExample.java:16)
+	at com.example.ecom.myexample.basic.CollectionExample.main(CollectionExample.java:16)
 
 
 Solution for problems above:

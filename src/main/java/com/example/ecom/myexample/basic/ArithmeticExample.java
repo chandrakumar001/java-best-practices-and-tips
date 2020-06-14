@@ -1,4 +1,4 @@
-package com.example.ecom.myexample.best;
+package com.example.ecom.myexample.basic;
 
 public class ArithmeticExample {
 

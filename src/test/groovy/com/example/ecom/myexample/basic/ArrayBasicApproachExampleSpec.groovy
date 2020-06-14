@@ -1,10 +1,11 @@
-package com.example.ecom.myexample.best
+package com.example.ecom.myexample.basic
 
+import com.example.ecom.myexample.basic.ArrayBasicApproachExample
 import spock.lang.Specification
 import spock.lang.Unroll
 
 @Unroll
-class LinearSearchExampleSpec extends Specification {
+class ArrayBasicApproachExampleSpec extends Specification {
 
     def "#testStep : findIndexNumber"() {
         given: "given index value out size"
@@ -13,7 +14,7 @@ class LinearSearchExampleSpec extends Specification {
 
         when: "call method"
         try {
-            actualResult = LinearSearchExample.findIndexNumber(
+            actualResult = ArrayBasicApproachExample.findIndexNumber(
                     linearExample,
                     findIndexNumber
             )
@@ -44,7 +45,7 @@ class LinearSearchExampleSpec extends Specification {
 
         when: "call method"
         try {
-            actualResult = LinearSearchExample.findIndexValue(
+            actualResult = ArrayBasicApproachExample.findIndexValue(
                     linearExample,
                     findIndexNumber
             )

@@ -1,8 +1,6 @@
-package com.example.ecom.myexample.best;
+package com.example.ecom.myexample.basic;
 
-import java.util.Optional;
-
-public class LinearSearchExample {
+public class ArrayBasicApproachExample {
 
     public static void main(String[] args) {
         int[] linearExample = {1, 4, 8, 11, 55, 6};
@@ -48,46 +46,8 @@ public class LinearSearchExample {
         return linearExample[indexSize];
     }
 
-    public static int findIndex2(int[] linearExample,
-                                 int findIndexNumber) throws IllegalArgumentException {
-        // to check whether the array is empty or not
-        if (linearExample == null) {
-            throw new IllegalArgumentException("Array must be null");
-        }
-        final int linearExampleLength = linearExample.length;
-        // to check whether the array size at least one
-        if (linearExampleLength < 1) {
-            throw new IllegalArgumentException("Array size must be 'one'");
-        }
-
-        for (int index = 0; index < linearExampleLength; index++) {
-            if (findIndexNumber == linearExample[index]) {
-                return index;
-            }
-        }
-        throw new IllegalArgumentException("Value is not found");
-    }
-
-    public static Optional<String> findIndex1(int[] linearExample, int findIndexNumber) {
-        // to check whether the array is empty or not
-        if (linearExample == null) {
-            return Optional.of("Array must be null");
-        }
-        final int linearExampleLength = linearExample.length;
-        // to check whether the array size at least one
-        if (linearExampleLength < 1) {
-            return Optional.of("Array size must be 'one'");
-        }
-
-        for (int i : linearExample) {
-            if (findIndexNumber == i) {
-                return Optional.empty();
-            }
-        }
-        return Optional.of("Value is not found");
-    }
-
-    public static int findIndexNumber(int[] linearExample, int findIndexNumber) {
+    public static int findIndexNumber(int[] linearExample,
+                                      int findIndexNumber) {
         // to check whether the array is empty or not
         if (linearExample == null) {
             throw new IllegalArgumentException("Array must be null");
