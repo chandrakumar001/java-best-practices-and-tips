@@ -1,0 +1,1 @@
+ - [CEO-001] Added new class
