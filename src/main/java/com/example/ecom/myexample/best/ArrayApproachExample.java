@@ -1,7 +1,5 @@
 package com.example.ecom.myexample.best;
 
-import com.example.ecom.myexample.best.ArrayValidationUtils;
-
 import java.util.Optional;
 
 public class ArrayApproachExample {
