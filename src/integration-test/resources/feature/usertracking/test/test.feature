@@ -26,7 +26,7 @@ Feature: User Tracking API
       | The email invalid  | test        | chandrakumar | 400        | "400 BAD_REQUEST" | "Invalid 'email' format"                     |
       | The name is empty  | chan@in.com | ''           | 400        | "400 BAD_REQUEST" | "Property 'name' must not be null or empty"  |
       | The name is null   | chan@in.com | null         | 400        | "400 BAD_REQUEST" | "Property 'name' must not be null or empty"  |
-
+  @ignore
   Scenario Outline: get user id
 
     Given path 'greeting/'+<id>
