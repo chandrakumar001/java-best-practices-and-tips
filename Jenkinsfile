@@ -13,6 +13,11 @@ node {
     stage('Demo1') {
         sayHello 'Dave'
     }
+    stage('SonarQube analysis') {
+        withSonarQubeEnv('Sonar Quality Gate') {
+            sh 'mvn clean package sonar:sonar'
+        } // submitted SonarQube taskId is automatically attached to the pipeline context
+    }
     qualityGate()
 }
 void qualityGate() {
@@ -20,7 +25,7 @@ void qualityGate() {
         sleep 5
         timeout(time: 5, unit: 'MINUTES') {
             def qualityGate = waitForQualityGate()
-            if (qg.status != 'OK') {
+            if (qualityGate.status != 'OK') {
                 error "Pipeline aborted due to quality gate failure: ${qualityGate.status}"
             }
         }
