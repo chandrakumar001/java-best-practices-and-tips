@@ -1,4 +1,4 @@
-package com.example.ecom.dbJson;
+package com.example.ecom.dbjson;
 
 import com.example.ecom.entity.UserView;
 import org.springframework.data.jpa.domain.Specification;

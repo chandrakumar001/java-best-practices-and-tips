@@ -1,6 +1,5 @@
 package com.example.ecom.dto;
 
-import com.example.ecom.entity.BookmarkEntity;
 import lombok.Getter;
 import lombok.Setter;
 

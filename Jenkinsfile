@@ -21,7 +21,7 @@ node {
     qualityGate()
 }
 void qualityGate() {
-    stage("Sonar Quality Gate") {
+    stage("Quality Gate") {
         sleep 5
         timeout(time: 5, unit: 'MINUTES') {
             def qualityGate = waitForQualityGate()

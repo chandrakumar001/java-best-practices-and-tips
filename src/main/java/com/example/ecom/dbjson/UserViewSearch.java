@@ -1,4 +1,4 @@
-package com.example.ecom.dbJson;
+package com.example.ecom.dbjson;
 
 import lombok.Getter;
 import lombok.Setter;

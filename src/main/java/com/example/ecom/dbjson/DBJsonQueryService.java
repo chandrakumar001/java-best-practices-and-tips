@@ -1,4 +1,4 @@
-package com.example.ecom.dbJson;
+package com.example.ecom.dbjson;
 
 import com.example.ecom.dto.BookmarkDTO;
 import com.example.ecom.dto.UserDTO;

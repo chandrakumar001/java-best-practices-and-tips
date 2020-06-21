@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.io.IOException;
 
 @Component
-public class jacksonJsonMapper implements JsonMapper {
+public class JacksonJsonMapper implements JsonMapper {
 
     @Autowired
     ObjectMapper objectMapper;

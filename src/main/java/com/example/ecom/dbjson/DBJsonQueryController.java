@@ -1,4 +1,4 @@
-package com.example.ecom.dbJson;
+package com.example.ecom.dbjson;
 
 import com.example.ecom.dto.UserviewDTO;
 import org.springframework.beans.factory.annotation.Autowired;

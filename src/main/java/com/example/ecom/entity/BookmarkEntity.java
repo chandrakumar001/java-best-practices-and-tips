@@ -24,5 +24,5 @@ public class BookmarkEntity implements Serializable {
     private String name;
     @Column(name = "user_id")
     private String userId;
-    private String  url;
+    private String url;
 }
