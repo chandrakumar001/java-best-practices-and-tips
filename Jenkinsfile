@@ -15,7 +15,7 @@ node {
     }
     stage('SonarQube analysis') {
         withSonarQubeEnv('Sonar Quality Gate') {
-            sh 'mvn  -Dsonar.analysis.mode=preview -Dsonar.scm.enabled=false -Dsonar.scm-stats.enabled=false -Dsonar.working.directory=C:\\Users\\covanan\\Videos\\My-all-doc\\Software\\.sonar'
+            bat 'mvn  -Dsonar.analysis.mode=preview -Dsonar.scm.enabled=false -Dsonar.scm-stats.enabled=false -Dsonar.working.directory=C:\\Users\\covanan\\Videos\\My-all-doc\\Software\\.sonar'
         } // submitted SonarQube taskId is automatically attached to the pipeline context
     }
     qualityGate()
