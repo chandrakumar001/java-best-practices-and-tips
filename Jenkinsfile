@@ -1,4 +1,5 @@
-@Library('pipeline-library-demo')
+#!groovy
+@Library('pipeline-library-demo')_
 
 node {
     stage('Checkout') {
