@@ -1,12 +1,7 @@
 #!groovy
-@Library('pipeline-library-demo@4.2.0')_
+@Library('pipeline-library-demo')_
 
-node {
-    stage('Checkout') {
-        checkout scm
-    }
-    stage('Demo') {
-        echo 'Hello world'
-        sayHello 'Dave'
-    }
+standardPipeline {
+    projectName = "Project1"
+    serverDomain = "Project1 Server Domain"
 }
