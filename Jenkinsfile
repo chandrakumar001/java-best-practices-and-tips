@@ -15,7 +15,7 @@ node {
     }
     stage('SonarQube analysis') {
         withSonarQubeEnv('Sonar Quality Gate') {
-            sh 'mvn clean package sonar:sonar'
+            sh 'mvn clean install sonar:sonar -Dsonar.host.url=http://localhost:9000'
         } // submitted SonarQube taskId is automatically attached to the pipeline context
     }
     qualityGate()
