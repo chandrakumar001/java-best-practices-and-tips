@@ -1,6 +1,6 @@
 #!groovy
 //@Library('pipeline-library-demo@1.0.1')_
-@Library('pipeline-library-demo')_
+@Library('pipeline-library-demo') _
 
 node {
     stage('Checkout') {
@@ -10,16 +10,17 @@ node {
         echo 'Hello world'
         sayHello 'Dave'
     }
-    stage('Demo1') {
-        sayHello 'Dave'
+    stage('Build') {
+        bat 'mvn clean install'
     }
     stage('SonarQube analysis') {
         withSonarQubeEnv('Sonar Quality Gate') {
-            bat 'mvn clean install sonar:sonar'
+            bat 'mvn sonar:sonar'
         } // submitted SonarQube taskId is automatically attached to the pipeline context
     }
     qualityGate()
 }
+
 void qualityGate() {
     stage("Quality Gate") {
         sleep 5
