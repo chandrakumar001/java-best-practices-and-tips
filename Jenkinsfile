@@ -11,12 +11,22 @@ node {
         sayHello 'Dave'
     }
     stage('Build') {
-        bat 'mvn clean install'
+        bat 'mvn clean install -Powasp-depency-check -Dmaven.test.skip=true'
     }
     stage('SonarQube analysis') {
         withSonarQubeEnv('Sonar Quality Gate') {
             bat 'mvn sonar:sonar'
         } // submitted SonarQube taskId is automatically attached to the pipeline context
+    }
+    stage ('Cucumber Reports') {
+
+        steps {
+            cucumber buildStatus: "UNSTABLE",
+                    fileIncludePattern: "**/cucumber.json",
+                    jsonReportDirectory: 'target'
+
+        }
+
     }
     qualityGate()
 }
