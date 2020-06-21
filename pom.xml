@@ -40,6 +40,7 @@
         <skip.integration.tests>true</skip.integration.tests>
         <gatling.plugin.version>3.0.2</gatling.plugin.version>
         <sonar.java.source>11</sonar.java.source>
+        <sonar.java.binaries>target/classes</sonar.java.binaries>
     </properties>
 
     <dependencies>
