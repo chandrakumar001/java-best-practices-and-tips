@@ -1,12 +1,6 @@
 node {
-    def mvnHome
     stage('Preparation') { // for display purposes
-        // Get some code from a GitHub repository
-        git 'https://github.com/jglick/simple-maven-project-with-tests.git'
-        // Get the Maven tool.
-        // ** NOTE: This 'M3' Maven tool must be configured
-        // **       in the global configuration.
-        mvnHome = tool 'M3'
+        git 'https://github.com/chandrakumar001/java-best-practices-and-tips.git'
     }
     stage('Build') {
         // Run the maven build
