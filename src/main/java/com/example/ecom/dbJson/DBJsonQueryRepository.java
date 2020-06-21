@@ -1,4 +1,4 @@
-package com.example.ecom;
+package com.example.ecom.dbJson;
 
 import com.example.ecom.entity.UserView;
 import org.springframework.data.domain.Page;
@@ -16,12 +16,12 @@ public interface DBJsonQueryRepository extends JpaRepository<UserView, UUID>,
         JpaSpecificationExecutor<UserView> {
 
     //select * from partcv.userview where us->>'name' = 'Janse' limit 1;
-    @Query(value = " select pa.* from  partcv.userviewtest as pa, jsonb_array_elements(test->'books') as bks where pa.test->>'name' LIKE %:name% or pa.test->>'email' LIKE %:email% or bks->>'name' LIKE %:bookName% "
+ /*   @Query(value = " select pa.* from  partcv.userviewtest as pa, jsonb_array_elements(test->'books') as bks where pa.test->>'name' LIKE %:name% or pa.test->>'email' LIKE %:email% or bks->>'name' LIKE %:bookName% "
             , nativeQuery = true
     )
     Page<UserView> findView(@Param("name") String name,
                             @Param("email") String email,
                             @Param("bookName") String bookName,
-                            Pageable pageRequest);
+                            Pageable pageRequest);*/
 
 }

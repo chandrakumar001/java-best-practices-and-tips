@@ -1,4 +1,4 @@
-package com.example.ecom;
+package com.example.ecom.dbJson;
 
 import com.example.ecom.dto.BookmarkDTO;
 import com.example.ecom.dto.UserDTO;
@@ -11,7 +11,6 @@ import com.example.ecom.jsonmapper.JsonMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -26,25 +25,26 @@ public class DBJsonQueryService {
     @Autowired
     JsonMapper jsonMapper;
 
-    public List<UserviewDTO> getDemos(String name,
-                                      String email,
-                                      String bookName,
-                                      int i) {
+    public List<UserviewDTO> getDemos(
+            UserViewSearch userViewSearch,
+            int i) {
 
-        DemoSpecification demoSpecification = new DemoSpecification();
+        DemoSpecification demoSpecification = new DemoSpecification(
+                userViewSearch
+        );
 
         //Page<UserView> sss = dbJsonQueryRepository.findAll(PageRequest.of(0, 1));
         final PageRequest pageRequest = PageRequest.of(0, i);
-     /*    Page<UserView> sss = dbJsonQueryRepository.findAll(
+        Page<UserView> sss = dbJsonQueryRepository.findAll(
                 demoSpecification,
                 pageRequest
-        );*/
-        Page<UserView> sss = dbJsonQueryRepository.findView(
+        );
+/*        Page<UserView> sss = dbJsonQueryRepository.findView(
                 name,
                 email,
                 bookName,
                 pageRequest
-        );
+        );*/
         //Page<Userview> sss = userRep1.findByJsonbLastName(PageRequest.of(0, 1));
 
         List<UserView> content = sss.getContent();
