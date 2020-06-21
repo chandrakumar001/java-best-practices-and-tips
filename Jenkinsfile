@@ -15,7 +15,7 @@ node {
     }
     stage('SonarQube analysis') {
         withSonarQubeEnv('Sonar Quality Gate') {
-            bat ' mvn sonar:sonar'
+            bat 'mvn clean install sonar:sonar'
         } // submitted SonarQube taskId is automatically attached to the pipeline context
     }
     qualityGate()
