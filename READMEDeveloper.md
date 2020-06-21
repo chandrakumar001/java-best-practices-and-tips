@@ -35,6 +35,10 @@
    
    SonarQube
      
+     mvn clean package sonar:sonar
+     mvn clean verify sonar:sonar
+     sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
+
      mvn sonar:sonar -Dsonar.host.url=http://localhost:9000
      
    Git merge:   
