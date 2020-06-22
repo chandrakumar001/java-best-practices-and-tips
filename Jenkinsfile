@@ -3,32 +3,33 @@
 @Library('pipeline-library-demo') _
 
 node {
-    stage('Checkout') {
-        checkout scm
-    }
-    stage('Demo') {
-        echo 'Hello world'
-        sayHello 'Dave'
-    }
-    stage('Build') {
-        bat 'mvn clean install -Powasp-depency-check -Dmaven.test.skip=true'
-    }
-    stage('SonarQube analysis') {
-        withSonarQubeEnv('Sonar Quality Gate') {
-            bat 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000/'
-        } // submitted SonarQube taskId is automatically attached to the pipeline context
-    }
-    stage ('Cucumber Reports') {
+    stages {
+        stage('Checkout') {
+            checkout scm
+        }
+        stage('Demo') {
+            echo 'Hello world'
+            sayHello 'Dave'
+        }
+        stage('Build') {
+            bat 'mvn clean install -Powasp-depency-check -Dmaven.test.skip=true'
+        }
+        stage('SonarQube analysis') {
+            withSonarQubeEnv('Sonar Quality Gate') {
+                bat 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000/'
+            } // submitted SonarQube taskId is automatically attached to the pipeline context
+        }
+        stage('Cucumber Reports') {
 
-        steps {
-            cucumber buildStatus: "UNSTABLE",
-                    fileIncludePattern: "**/cucumber.json",
-                    jsonReportDirectory: 'target'
+            steps {
+                cucumber buildStatus: "UNSTABLE",
+                        fileIncludePattern: "**/cucumber.json",
+                        jsonReportDirectory: 'target'
+            }
 
         }
-
+        qualityGate()
     }
-    qualityGate()
 }
 
 void qualityGate() {
