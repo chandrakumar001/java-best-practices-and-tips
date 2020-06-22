@@ -15,7 +15,7 @@ node {
     }
     stage('SonarQube analysis') {
         withSonarQubeEnv('Sonar Quality Gate') {
-            bat 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000/test'
+            bat 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000/'
         } // submitted SonarQube taskId is automatically attached to the pipeline context
     }
     stage ('Cucumber Reports') {
