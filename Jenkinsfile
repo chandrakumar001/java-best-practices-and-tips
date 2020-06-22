@@ -18,16 +18,16 @@ node {
             bat 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000/'
         } // submitted SonarQube taskId is automatically attached to the pipeline context
     }
-    stage('Cucumber Reports') {
-
-        steps {
-            cucumber buildStatus: "UNSTABLE",
-                    fileIncludePattern: "**/cucumber.json",
-                    jsonReportDirectory: 'target'
-        }
-
-    }
-    qualityGate()
+//    stage('Cucumber Reports') {
+//
+//        steps {
+//            cucumber buildStatus: "UNSTABLE",
+//                    fileIncludePattern: "**/cucumber.json",
+//                    jsonReportDirectory: 'target'
+//        }
+//
+//    }
+  //  qualityGate()
 }
 
 void qualityGate() {
