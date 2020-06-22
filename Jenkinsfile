@@ -1,16 +1,16 @@
 #!groovy
 //@Library('pipeline-library-demo@1.0.1')_
-@Library('pipeline-library-demo') _
+//@Library('pipeline-library-demo') _
 
 node {
     stages {
         stage('Checkout') {
             checkout scm
         }
-        stage('Demo') {
-            echo 'Hello world'
-            sayHello 'Dave'
-        }
+//        stage('Demo') {
+//            echo 'Hello world'
+//            sayHello 'Dave'
+//        }
         stage('Build') {
             bat 'mvn clean install -Powasp-depency-check -Dmaven.test.skip=true'
         }
