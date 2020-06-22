@@ -11,11 +11,11 @@ node {
         sayHello 'Dave'
     }
     stage('Build') {
-        bat 'mvn clean install -Powasp-depency-check  -DskipTests'
+        bat 'mvn clean install -Powasp-depency-check -Dmaven.test.skip=true'
     }
     stage('SonarQube analysis') {
         withSonarQubeEnv('Sonar Quality Gate') {
-            bat 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000'
+            bat 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000/test'
         } // submitted SonarQube taskId is automatically attached to the pipeline context
     }
     stage ('Cucumber Reports') {
